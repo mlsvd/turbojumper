@@ -4,5 +4,5 @@ namespace TurboJumper.Decorators;
 
 public interface IProcessListDecorator
 {
-    public List<ProcessWrapper> Provide(List<ProcessWrapper> processWrappers);
+    public List<ProcessWrapper> Decorate(List<ProcessWrapper> processWrappers);
 }

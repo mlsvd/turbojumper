@@ -22,9 +22,4 @@ public class FormViewCoordinates
         get { return _y; }
         set { _y = value; }
     }
-
-    public static FormViewCoordinates createFromForm(Form targetForm)
-    {
-        return new FormViewCoordinates(0, 0);
-    }
 }

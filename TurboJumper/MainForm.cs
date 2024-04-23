@@ -9,17 +9,19 @@ using TurboJumper.Providers;
 
 namespace TurboJumper;
 
-public partial class MainForm : Form
+public partial class MainForm: Form
 {
     private IProcessProvider _processProvider;
     private IProcessListPresenter _processListPresenter;
-    public MainForm(IProcessProvider processProvider, IProcessListPresenter processListPresenter)
+    private IAppConfigurationProvider _configuration;
+    public MainForm(IProcessProvider processProvider, IProcessListPresenter processListPresenter, IAppConfigurationProvider configuration)
     {
         this._processProvider = processProvider;
         this._processListPresenter = processListPresenter;
+        this._configuration = configuration;
 
-        this.Width = 800;
-        this.Height = 700;
+        this.Width = this._configuration.ProvideIntValue("FormView:FormWidth", 800);
+        this.Height = this._configuration.ProvideIntValue("FormView:FormHeight", 700);
 
         DisplayProcessList();
         // InitializeComponent();

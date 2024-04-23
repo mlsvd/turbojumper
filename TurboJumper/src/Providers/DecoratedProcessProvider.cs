@@ -10,18 +10,23 @@ public class DecoratedProcessProvider: IProcessProvider
     
     public DecoratedProcessProvider(
         ProcessProvider processProvider,
-        ProcessListMainProcessFilterDecorator processListMainProcessFilterDecorator)
+        ProcessListMainProcessFilterDecorator mainProcessFilterDecorator)
     {
         this._processProvider = processProvider;
         this._decorators
-            .Add(processListMainProcessFilterDecorator)
+            .Add(mainProcessFilterDecorator)
             ;
     }
     
     public List<ProcessWrapper> Provide()
     {
-        var processes = this._processProvider.Provide();
+        var processList = this._processProvider.Provide();
 
-        return processes;
+        foreach (IProcessListDecorator decorator in this._decorators)
+        {
+            processList = decorator.Decorate(processList);
+        }
+        
+        return processList;
     }
 }

@@ -6,11 +6,6 @@ public class ProcessWrapper(Process processOrigin)
 {
     private Process _processOrigin = processOrigin;
 
-    public static ProcessWrapper CreateFromProcess(Process process)
-    {
-        return new ProcessWrapper(process);
-    }
-
     public bool IsMainProcess()
     {
         return !string.IsNullOrEmpty(this._processOrigin.MainWindowTitle);
@@ -19,5 +14,10 @@ public class ProcessWrapper(Process processOrigin)
     public string GetMainWindowTitle()
     {
         return this._processOrigin.MainWindowTitle;
+    }
+    
+    public string GetProcessName()
+    {
+        return this._processOrigin.ProcessName;
     }
 }

@@ -1,30 +1,36 @@
-﻿using TurboJumper.Models;
+﻿using Microsoft.Extensions.Configuration;
+using TurboJumper.Models;
+using TurboJumper.Providers;
 
 namespace TurboJumper.Presenters;
 
-public class ProcessWrapperElementPresenter(ProcessWrapper processWrapper) : IProcessWrapperElementPresenter
+public class ProcessWrapperElementPresenter(ProcessWrapper processWrapper, IAppConfigurationProvider configuration) : IProcessWrapperElementPresenter
 {
     private ProcessWrapper _processWrapper = processWrapper;
+    private IAppConfigurationProvider _configuration = configuration;
 
-    public static ProcessWrapperElementPresenter CreateFromProcessWrapper(ProcessWrapper processWrapper)
+    public Control ToFormElement(FormViewCoordinates formViewCoordinates)
     {
-        return new ProcessWrapperElementPresenter(processWrapper);
-    }
+        Console.WriteLine(this._processWrapper.GetMainWindowTitle());
+        // Console.WriteLine(this._configuration["FormView:GroupBoxWidth1"]);
+        // throw new Exception();
+        var groupBoxWidth= this._configuration.ProvideIntValue("FormView:GroupBoxWidth", 150);
+        var groupBoxHeight= this._configuration.ProvideIntValue("FormView:GroupBoxHeight", 80);
 
-    public Control toFormElement(FormViewCoordinates formViewCoordinates)
-    {
+        var buttonWidth= this._configuration.ProvideIntValue("FormView:ButtonWidth", 130);
+        var buttonHeight= this._configuration.ProvideIntValue("FormView:ButtonHeight", 60);
+        
         GroupBox groupBox = new GroupBox();
-        groupBox.Text = this._processWrapper.GetMainWindowTitle();
+        groupBox.Text = this._processWrapper.GetProcessName();
         groupBox.Location = new System.Drawing.Point(formViewCoordinates.X, formViewCoordinates.Y);
-        groupBox.Size = new System.Drawing.Size(300, 150);
-        groupBox.FlatStyle = FlatStyle.System; // Apply gray border
+        groupBox.Size = new System.Drawing.Size(groupBoxWidth, groupBoxHeight);
+        groupBox.FlatStyle = FlatStyle.System;
 
-        // Create the button
         Button button = new Button();
-        button.Text = "Button";
-        button.Location = new System.Drawing.Point(20, 30);
-        groupBox.Controls.Add(button); // Add button to the group box
-
+        button.Text = this._processWrapper.GetMainWindowTitle();
+        button.Location = new System.Drawing.Point(5, 25);
+        button.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
+        groupBox.Controls.Add(button);
 
         return groupBox;
     }
