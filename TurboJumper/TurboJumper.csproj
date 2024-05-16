@@ -19,6 +19,13 @@
       <None Update="appsettings.json">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
+      <None Update="src\Resources\Images\default_app_icon.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="src\Resources\Images\" />
     </ItemGroup>
 
 </Project>

@@ -2,9 +2,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TurboJumper.Decorators;
 using TurboJumper.Factories;
+using TurboJumper.Handlers;
+using TurboJumper.Listeners;
+using TurboJumper.Managers;
 using TurboJumper.Presenters;
 using TurboJumper.Providers;
-using IConfigurationProvider = Microsoft.Extensions.Configuration.IConfigurationProvider;
 
 namespace TurboJumper;
 
@@ -25,16 +27,27 @@ static class Program
             .Build();
         
         var serviceProvider = new ServiceCollection()
+            // Handlers
+            .AddTransient<SwitchToProcessHandler>()
             // Providers
             .AddTransient<ProcessProvider>()
             .AddTransient<IProcessProvider, DecoratedProcessProvider>()
             .AddTransient<IProcessListPresenter, ProcessListPresenter>()
+            .AddTransient<ProcessKeyboardShortcutProvider>()
             // Decorators
             .AddTransient<ProcessListMainProcessFilterDecorator>()
+            .AddTransient<ProcessListIconDecorator>()
+            .AddTransient<ProcessListKeyCombinationDecorator>()
             // Factories
             .AddTransient<FormViewCoordinatesFactory>()
             .AddTransient<ProcessWrapperElementPresenterFactory>()
             .AddTransient<ProcessWrapperFactory>()
+            // Listeners
+            .AddTransient<KeyboardListener>()
+            .AddTransient<ProcessFormButtonListener>()
+            // Managers
+            // .AddTransient<KeyboardManager>()
+            .AddSingleton<KeyboardManager>()
             // 
             .AddTransient<IAppConfigurationProvider, AppConfigurationProvider>()
             .AddTransient<MainForm>()
