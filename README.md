@@ -23,7 +23,9 @@ Turbo Jumper is a lightweight Windows application designed to optimize the proce
         -- Press the [Space] key when the Turbo Jumper window is active and focused.
         -- Alternatively, reload the Turbo Jumper application.
 
-![Turbo Jumper showcase](https://github.com/mlsvd/turbojumper/releases/download/v0.0.1/turbo_jumper_showcase01.gif)
+![Turbo Jumper preview](preview.png)
+
+[Turbo Jumper showcase. Note: Showcase gif is ~100Mb](showcase.md)
 
 ## Installation
 ### Build
