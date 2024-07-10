@@ -4,11 +4,10 @@ Turbo Jumper is a lightweight Windows application designed to optimize the proce
 
 
 ## Features
-
-*Process Button Interface:* Upon launch, Turbo Jumper loads system processes and displays them as buttons in the main window form.
-*Quick Switching:* Clicking on a process button instantly switches focus to the target application.
-*Keyboard Shortcuts:* Each process button is assigned a shortcut key (e.g., 0-9, qwertyasd etc) for rapid switching using the keyboard. Shortcuts will work when Turbo Jumper window is active and focused, and when not, actions for shortcuts will be omitted. This is intended to not interfere with other shortcuts configured by system or other applications.
-*Enhanced Accessibility:* Ideal for developers and users who frequently switch between multiple applications, offering a faster alternative to Alt+Tab or Win+Tab.
+- **Process Button Interface:** Upon launch, Turbo Jumper loads system processes and displays them as buttons in the main window form.
+- **Quick Switching:** Clicking on a process button instantly switches focus to the target application.
+- **Keyboard Shortcuts:** Each process button is assigned a shortcut key (e.g., 0-9, qwertyasd etc) for rapid switching using the keyboard. Shortcuts will work when Turbo Jumper window is active and focused, and when not, actions for shortcuts will be omitted. This is intended to not interfere with other shortcuts configured by system or other applications.
+- **Enhanced Accessibility:** Ideal for developers and users who frequently switch between multiple applications, offering a faster alternative to Alt+Tab or Win+Tab.
 
 ## Recommended usage
 1. Launch the Application
