@@ -13,6 +13,11 @@ public class KeyboardManager(SwitchToProcessHandler switchToProcessHandler)
         this._keyboardRegistryEntries[combination] = registryEntry;
     }
     
+    public void resetCombinations()
+    {
+        this._keyboardRegistryEntries = new Dictionary<string, KeyboardRegistryEntry>();
+    }
+    
     public bool hasRegisteredKeyCombination(string combination)
     {
         return this._keyboardRegistryEntries.ContainsKey(combination);
@@ -40,7 +45,5 @@ public class KeyboardManager(SwitchToProcessHandler switchToProcessHandler)
                 
                 break;
         }
-        
     }
-
 }

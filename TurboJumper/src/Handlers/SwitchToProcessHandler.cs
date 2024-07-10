@@ -43,7 +43,7 @@ public class SwitchToProcessHandler
         }
     }
 
-private const int SW_RESTORE = 9;
+    private const int SW_RESTORE = 9;
     private const int SW_SHOW = 5;
     
     [Serializable]

@@ -14,11 +14,15 @@ public class ProcessListKeyCombinationDecorator(
 
     public List<ProcessWrapper> Decorate(List<ProcessWrapper> processWrappers)
     {
-        int index = 1;
+        this._keyboardManager.resetCombinations();
+        
+        int index = 0;
         foreach (ProcessWrapper processWrapper in processWrappers)
         {
+            var shortcutConfig = this._keyboardShortcutProvider.ProvideForProcess(processWrapper, index);
+            processWrapper.KeyboardShortcut = shortcutConfig;
             this._keyboardManager.registerCombination(
-                this._keyboardShortcutProvider.ProvideForProcess(processWrapper, index),
+                shortcutConfig.HotKey,
                 new KeyboardRegistryEntry
                 {
                     Action = "switchToProcess", 
@@ -28,8 +32,6 @@ public class ProcessListKeyCombinationDecorator(
 
             index++;
         }
-        
-        Console.WriteLine(processWrappers);
 
         return processWrappers;
     }

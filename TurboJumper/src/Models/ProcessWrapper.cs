@@ -7,6 +7,7 @@ public class ProcessWrapper(Process processOrigin)
     private Process _processOrigin = processOrigin;
 
     public Image? AppIcon { get; set; }
+    public ShortcutConfig KeyboardShortcut { get; set; }
 
     public bool IsMainProcess()
     {
