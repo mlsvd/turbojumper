@@ -1,2 +1,6 @@
 /.idea/
+/.zed/
+/TurboJumper/.idea/
 /TurboJumper/bin/
+/TurboJumper/obj/
+/CLAUDE.md

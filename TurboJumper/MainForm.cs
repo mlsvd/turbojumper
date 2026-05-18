@@ -25,7 +25,7 @@ public partial class MainForm: Form
         this._keyboardListener = keyboardListener;
         
         this.Text = "TurboJumper";
-        this.Icon = new Icon("src\\Resources\\Images\\app.ico");
+        this.Icon = new Icon(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "src", "Resources", "Images", "app.ico"));
 
         KeyPreview = true;
         KeyDown += this._keyboardListener.onKeyDown;

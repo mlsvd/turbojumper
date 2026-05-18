@@ -1,7 +1,10 @@
-﻿namespace TurboJumper.FormElement;
+﻿using System.ComponentModel;
+
+namespace TurboJumper.FormElement;
 
 public class ProcessButton : Button
 {
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
     public string BottomText { get; set; }
     
     protected override void OnPaint(PaintEventArgs pevent)

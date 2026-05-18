@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dotnet --list-sdks)",
+      "Bash(dotnet --version)",
+      "PowerShell(\\(Get-Command dotnet -ErrorAction SilentlyContinue\\).Source; Get-ChildItem \"C:\\\\Program Files\\\\dotnet\\\\\" -ErrorAction SilentlyContinue | Select-Object Name; Get-ChildItem \"C:\\\\Program Files \\(x86\\)\\\\dotnet\\\\\" -ErrorAction SilentlyContinue | Select-Object Name)",
+      "PowerShell(& \"C:\\\\Program Files\\\\dotnet\\\\dotnet.exe\" --list-sdks)",
+      "PowerShell(& \"C:\\\\Program Files\\\\dotnet\\\\dotnet.exe\" --list-runtimes)",
+      "PowerShell(& \"C:\\\\Program Files\\\\dotnet\\\\dotnet.exe\" build TurboJumper/TurboJumper.csproj 2>&1)",
+      "PowerShell(& \"C:\\\\Program Files\\\\dotnet\\\\dotnet.exe\" run --project TurboJumper/TurboJumper.csproj 2>&1)",
+      "Bash(Get-ChildItem -Recurse TurboJumper/obj)",
+      "Bash(Select-Object FullName)",
+      "Bash(Get-Content .gitignore)",
+      "PowerShell(Get-ChildItem -Force \"C:\\\\work\\\\turbojumper\\\\TurboJumper\\\\obj\" -Recurse | ForEach-Object { $_.FullName })"
+    ]
+  }
+}
