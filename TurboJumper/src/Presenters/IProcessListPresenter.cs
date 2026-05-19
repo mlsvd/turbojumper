@@ -4,5 +4,5 @@ namespace TurboJumper.Presenters;
 
 public interface IProcessListPresenter
 {
-    public Form Present(Form targetForm, List<ProcessWrapper> processWrappers);
+    public void Present(Control container, List<ProcessWrapper> processWrappers);
 }

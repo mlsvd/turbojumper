@@ -7,6 +7,7 @@ using TurboJumper.Listeners;
 using TurboJumper.Managers;
 using TurboJumper.Presenters;
 using TurboJumper.Providers;
+using TurboJumper.Services;
 
 namespace TurboJumper;
 
@@ -36,8 +37,11 @@ static class Program
             .AddTransient<ProcessKeyboardShortcutProvider>()
             // Decorators
             .AddTransient<ProcessListMainProcessFilterDecorator>()
+            .AddTransient<ProcessListWhitelistFilterDecorator>()
             .AddTransient<ProcessListIconDecorator>()
             .AddTransient<ProcessListKeyCombinationDecorator>()
+            // Services
+            .AddSingleton<ProcessConfigService>()
             // Factories
             .AddTransient<FormViewCoordinatesFactory>()
             .AddTransient<ProcessWrapperElementPresenterFactory>()

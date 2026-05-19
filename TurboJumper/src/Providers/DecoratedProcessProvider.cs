@@ -7,16 +7,18 @@ public class DecoratedProcessProvider: IProcessProvider
 {
     private ProcessProvider _processProvider;
     private List<IProcessListDecorator> _decorators = [];
-    
+
     public DecoratedProcessProvider(
         ProcessProvider processProvider,
         ProcessListMainProcessFilterDecorator mainProcessFilterDecorator,
+        ProcessListWhitelistFilterDecorator whitelistFilterDecorator,
         ProcessListIconDecorator iconDecorator,
         ProcessListKeyCombinationDecorator keyCombinationDecorator
     )
     {
         this._processProvider = processProvider;
         this._decorators.Add(mainProcessFilterDecorator);
+        this._decorators.Add(whitelistFilterDecorator);
         this._decorators.Add(iconDecorator);
         this._decorators.Add(keyCombinationDecorator);
     }

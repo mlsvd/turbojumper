@@ -19,13 +19,16 @@ public class ProcessListKeyCombinationDecorator(
         int index = 0;
         foreach (ProcessWrapper processWrapper in processWrappers)
         {
-            var shortcutConfig = this._keyboardShortcutProvider.ProvideForProcess(processWrapper, index);
+            var shortcutConfig = processWrapper.ConfiguredHotKey is not null
+                ? this._keyboardShortcutProvider.ProvideForHotKey(processWrapper.ConfiguredHotKey)
+                : this._keyboardShortcutProvider.ProvideForProcess(processWrapper, index);
+
             processWrapper.KeyboardShortcut = shortcutConfig;
             this._keyboardManager.registerCombination(
                 shortcutConfig.HotKey,
                 new KeyboardRegistryEntry
                 {
-                    Action = "switchToProcess", 
+                    Action = "switchToProcess",
                     ProcessHandle = processWrapper.GetMainWindowHandle()
                 }
             );

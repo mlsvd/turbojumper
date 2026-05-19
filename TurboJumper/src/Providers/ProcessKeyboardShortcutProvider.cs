@@ -56,4 +56,15 @@ public class ProcessKeyboardShortcutProvider
 
         return shortcut;
     }
+
+    public ShortcutConfig ProvideForHotKey(string hotKey)
+    {
+        return new ShortcutConfig
+        {
+            HotKey = hotKey,
+            DisplayName = keyMap.TryGetValue(hotKey, out var name) ? name : hotKey
+        };
+    }
+
+    public IReadOnlyDictionary<string, string> GetKeyMap() => keyMap;
 }
