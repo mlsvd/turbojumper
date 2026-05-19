@@ -1,42 +1,37 @@
-# Turbo Jumper
--------------
-Turbo Jumper is a lightweight Windows application designed to optimize the process of switching between multiple applications and to make it quickly and efficiently as possible. Turbo Jumper provides an intuitive interface that enhances productivity for developers and users alike. Its primary goal is to enable seamless switching between open application windows without relying on Alt+Tab or Win+Tab.
+# TurboJumper
 
+Fast application switcher for Windows. Instead of Alt+Tab cycling, TurboJumper shows your configured apps as buttons, click one or press its key and you're there.
 
-## Features
-- **Process Button Interface:** Upon launch, Turbo Jumper loads system processes and displays them as buttons in the main window form.
-- **Quick Switching:** Clicking on a process button instantly switches focus to the target application.
-- **Keyboard Shortcuts:** Each process button is assigned a shortcut key (e.g., 0-9, qwertyasd etc) for rapid switching using the keyboard. Shortcuts will work when Turbo Jumper window is active and focused, and when not, actions for shortcuts will be omitted. This is intended to not interfere with other shortcuts configured by system or other applications.
-- **Enhanced Accessibility:** Ideal for developers and users who frequently switch between multiple applications, offering a faster alternative to Alt+Tab or Win+Tab.
+![TurboJumper preview](preview.png)
 
-## Recommended usage
-1. Launch the Application
-2. Position Turbo Jumper on the Taskbar
-    - Pin Turbo Jumper to the leftmost position on the taskbar for quick access using Win+1 (or Win+{position}).
-3. Switching Applications
-    - Activate Turbo Jumper using the assigned shortcut (Win+1, etc.).
-    - Click on the button representing the target application's process window to switch to it.
-    - Alternatively, use the shortcut key displayed at the bottom of the application's button.
-4. Refreshing Process List
-    - To update the list of processes (e.g., when new apps are opened or closed):
-        -- Press the [Space] key when the Turbo Jumper window is active and focused.
-        -- Alternatively, reload the Turbo Jumper application.
+## How it works
 
-![Turbo Jumper preview](preview.png)
+On launch, TurboJumper shows buttons only for the apps you've whitelisted. Each button gets a keyboard shortcut (1–9, Q–P, A–L, Z–M). Shortcuts are active only while TurboJumper is focused, so they don't interfere with anything else.
 
-[Turbo Jumper showcase. Note: Showcase gif is ~100Mb](showcase.md)
+**Space** refreshes the list when you open new apps.
 
-## Installation
-### Build
-1. Clone the Repository: git clone https://github.com/mlsvd/turbojumper
-2. Build and Run: Open the solution in Visual Studio, build the application, and launch it. Turbo Jumper is now ready to simplify your application-switching experience.
+## Setup
 
-### Download prebuilt version
+Pin TurboJumper to the leftmost position on the taskbar, then Win+1 opens it from anywhere.
 
+## Configure
 
-## Contributing
-Contributions to Turbo Jumper are welcome! If you have suggestions, bug reports, or would like to add new features, please feel free to open an issue or submit a pull request on GitHub.
+Click **Configure** to manage which apps appear and in what order. You can set a custom key per app, enable/disable entries individually, or pick from currently running processes to add them quickly.
 
-# License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for details.
+Config is saved to `%APPDATA%\TurboJumper\process-config.json`. On first run a default list is created (Chrome, Edge, Firefox, VS Code, Slack, Teams, Spotify, Visual Studio, Discord, Explorer, Notepad).
 
+## Build & run
+
+```
+git clone https://github.com/mlsvd/turbojumper
+```
+
+Open `TurboJumper.sln` in Visual Studio and press F5, or:
+
+```
+dotnet run --project TurboJumper/TurboJumper.csproj
+```
+
+## License
+
+MIT — see [LICENSE](LICENSE.md).
