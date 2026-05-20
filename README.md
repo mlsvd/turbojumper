@@ -1,8 +1,22 @@
 # TurboJumper
 
-Fast application switcher for Windows. Instead of Alt+Tab cycling, TurboJumper shows your configured apps as buttons, click one or press its key and you're there.
+Fast application switcher for Windows. Instead of Alt+Tab cycling, TurboJumper shows your configured apps as buttons, click one or press its shortcut key to activate it.
 
-![TurboJumper preview](preview.png)
+## Why this app?
+
+Switching between apps in Windows has always been a bit awkward. Alt+Tab cycles through all opened apps. So in order to open a specific app you have to keep pressing Alt+Tab until you land on the target app. Win+Tab shows a visual overview, but when you have many windows open the previews shrink and start looking nearly identical, especially for text editors, ides, terminals and consoles.
+
+TurboJumper takes a different approach: each app gets a dedicated (configurable) key. Press it once and you're there, no cycling, no hunting through thumbnails.
+
+## Who is it for?
+
+Mainly developers and anyone who works with a fixed set of apps and switches between them constantly, especially on a single monitor or a laptop. The recommended workflow:
+
+- Pin TurboJumper to the **first position** on the taskbar
+- Press **Win+1** from anywhere to open it
+- Press the key assigned to the app you want
+
+Two keystrokes, zero hunting. The app only shows the processes you care about, so the list stays short and the keys are easy to remember.
 
 ## How it works
 
@@ -10,9 +24,7 @@ On launch, TurboJumper shows buttons only for the apps you've whitelisted. Each 
 
 **Space** refreshes the list when you open new apps.
 
-## Setup
-
-Pin TurboJumper to the leftmost position on the taskbar, then Win+1 opens it from anywhere.
+![TurboJumper preview](preview.png)
 
 ## Configure
 
